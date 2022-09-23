@@ -21,7 +21,7 @@ pipeline {
                     script {
                         def mvnHome = tool 'maven'
                         withSonarQubeEnv() {
-                            bat "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sts"
+                            bat "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=demo_pipe_sonar"
                         }
                     }
                 }
