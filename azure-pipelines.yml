@@ -39,7 +39,7 @@ stages:
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFile: '**/docker-compose.yaml'
         action: 'Run a Docker Compose command'
 
     - task: CopyFiles@2
