@@ -17,24 +17,24 @@ services:
     #  - SPRING_DATASOURCE_PASSWORD=kparun
     #volumes:
     #  - ./target/ashwin-web.war:/usr/local/tomcat/webapps/ashwin-web.war
-  #db:
+  db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     # If you really want to use MySQL, uncomment the following line
-    #image: mysql:8.0.27
+    image: mysql:8.0.27
     #command: '--default-authentication-plugin=mysql_native_password'
-    #container_name: db
-    #volumes:
-      #- db_data:/var/lib/mysql
-    #restart: always
-    #environment:
-      #- MYSQL_ROOT_PASSWORD=Arunsagar1@
-      #- MYSQL_DATABASE=arundb
-      #- MYSQL_USER=springusername
-      #- MYSQL_PASSWORD=springpass
-    #networks:
-      #- spring-mysql  
-    #ports:
-      #- "3306:3306"  
+    container_name: db
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Arunsagar1@
+      - MYSQL_DATABASE=arundb
+      - MYSQL_USER=springusername
+      - MYSQL_PASSWORD=springpass
+    networks:
+      - spring-mysql  
+    ports:
+      - "3306:3306"  
 volumes:
   db_data:
 networks:
