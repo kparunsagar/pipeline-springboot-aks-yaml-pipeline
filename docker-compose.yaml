@@ -12,7 +12,7 @@ services:
     networks:
       - spring-mysql
     #environment:
-    #  - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/kparun
+    #  - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/arundb
     #  - SPRING_DATASOURCE_USERNAME=kparun
     #  - SPRING_DATASOURCE_PASSWORD=kparun
     #volumes:
@@ -27,10 +27,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=example
-      - MYSQL_DATABASE=learner_db
-      - MYSQL_USER=learner
-      - MYSQL_PASSWORD=learner123
+      - MYSQL_ROOT_PASSWORD=Arunsagar1@
+      - MYSQL_DATABASE=arundb
+      - MYSQL_USER=springusername
+      - MYSQL_PASSWORD=springpass
     networks:
       - spring-mysql  
     ports:
