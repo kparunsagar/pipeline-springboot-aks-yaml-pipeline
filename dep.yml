@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-springboot-app1
-        image: myacrrepo444.azurecr.io/kparunsagar/kparunsagar/pipeline-sprigboot-aks:#{Build.BuildId}#
+        image: myacrrepo444.azurecr.io/kparunsagar/pipeline-springboot-aks:latest:#{Build.BuildId}#
         imagePullPolicy: Always
         ports:
         - containerPort: 8086
