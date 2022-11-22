@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: my-springboot-app1
-        image: myacrrepo444.azurecr.io/kparunsagar/pipeline-springboot-aks:latest:#{Build.BuildId}#
+        image: myacrrepo444.azurecr.io/kparunsagar/pipeline-springboot-aks:#{Build.BuildId}#
         imagePullPolicy: Always
         ports:
-        - containerPort: 8086
+        - containerPort: 8085
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -32,7 +32,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8086
+    targetPort: 8085
   type: LoadBalancer
   selector:
     app: springboot-app1
