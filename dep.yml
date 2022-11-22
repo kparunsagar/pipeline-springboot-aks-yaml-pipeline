@@ -1,38 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-springboot-deployment
+  name: my-springboot-deployment1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: springboot-app
+      app: springboot-app1
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: springboot-app1
     spec:
       containers:
-      - name: my-springboot-app
+      - name: my-springboot-app1
         image: myacrrepo444.azurecr.io/kparunsagar/azure-kubernetes-springboot-app:#{Build.BuildId}#
         imagePullPolicy: Always
         ports:
-        - containerPort: 8085
+        - containerPort: 8086
 # service type loadbalancer       
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: springboot-app
-    k8s-app: springboot-app
+    app: springboot-app1
+    k8s-app: springboot-app1
   name: springboot-app
 spec:
   ports:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8085
+    targetPort: 8086
   type: LoadBalancer
   selector:
-    app: springboot-app
+    app: springboot-app1
