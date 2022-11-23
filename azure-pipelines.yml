@@ -1,0 +1,20 @@
+# Maven package Java project Web App to Linux on Azure
+# Build your Java project and deploy it to Azure as a Linux web app
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+variables:
+  azureContainerRegistry: Contoso.azurecr.io
+  azureSubscriptionEndpoint: Contoso
+steps:
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
+    azureContainerRegistry: '{"loginServer":"arunregistry.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/Arun_RG/providers/Microsoft.ContainerRegistry/registries/Arunregistry"}'
+    dockerComposeFile: '**/docker-compose.yaml'
+    action: 'Run a Docker Compose command'
