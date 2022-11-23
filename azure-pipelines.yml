@@ -10,11 +10,7 @@ variables:
   azureContainerRegistry: arunregistry.azurecr.io
   azureSubscriptionEndpoint: f3f0b402-1498-4537-9728-704a780011a0
 steps:
-- task: DockerCompose@0
-  displayName: Container registry login
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    dockerRegistryEndpoint: f3f0b402-1498-4537-9728-704a780011a0
+
 - task: DockerCompose@0
   displayName: Container registry login
   inputs:
