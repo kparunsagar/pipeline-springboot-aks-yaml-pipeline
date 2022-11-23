@@ -7,9 +7,14 @@ trigger:
 - master
 
 variables:
-  azureContainerRegistry: Contoso.azurecr.io
+  azureContainerRegistry: arunregistry.azurecr.io
   azureSubscriptionEndpoint: Contoso
 steps:
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    dockerRegistryEndpoint: Contoso
 - task: DockerCompose@0
   displayName: Container registry login
   inputs:
