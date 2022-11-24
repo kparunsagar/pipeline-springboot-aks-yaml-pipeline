@@ -21,15 +21,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-- task: DockerCompose@0
-  displayName: Container registry login
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-    azureContainerRegistry: '{"loginServer":"arunregistry.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/Arun_RG/providers/Microsoft.ContainerRegistry/registries/Arunregistry"}'
-    dockerComposeFile: '**/docker-compose.yaml'
-    action: 'Run a Docker Compose command'
-    dockerComposeCommand: 'build'
+
 
 - task: DockerCompose@0
   displayName: build services
